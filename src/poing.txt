@@ -1,0 +1,23 @@
+*------- pcb completed and ready. already checked and all peripherals working. perfectly!
+*------- humidity and temp sensor  (dht22)
+*lcd drive and menu
+* drive motor (AC) high and low relay. some kind of timer to keep track. create provision for a limit switch to keep track of position. 
+* Heater with pid 
+* enable wifi.
+* get OTA for the product
+ * Menu items essentials. 
+ * temp, humidity (current) home page visible all the time. default 
+ * temp and hum settings (setpointS) inside of the settings submenu 
+ * toggles: light, humidifier, heater (at full power ), fan_exhaust, fan_main. 
+ * callbacks: turn_eggs
+ 
+
+*OTA 
+
+
+
+* The app for this . (firebase or amazon iot) 
+- update the current temp values,  
+- settings 
+- toggles 
+- hatch metrics (days remaining and stuff) 
