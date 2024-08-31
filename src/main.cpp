@@ -6,7 +6,7 @@
 #include "AiEsp32RotaryEncoder.h"
 
 // constants
-#define ROTARY_ENCODER_STEPS 4
+#define ROTARY_ENCODER_STEPS 2
 
 // INITIALIZETD
 DHT dht(DHTPIN, DHTTYPE);
@@ -38,7 +38,7 @@ void updateEncoder()
 {
   if (rotaryEncoder.encoderChanged())
   {
-    Serial.println(rotaryEncoder.readEncoder());
+    Serial.println(rotaryEncoder.encoderSteps);
   }
   if (rotaryEncoder.isEncoderButtonClicked())
   {
@@ -54,7 +54,7 @@ void IRAM_ATTR readEncoderISR()
 void setup()
 {
   // put your setup code here, to run once:
-  Serial.begin(115200);
+  Serial.begin(9600);
   menu.initialize(mainMenu);
   rotaryEncoder.begin();
   rotaryEncoder.setup(readEncoderISR);
@@ -64,6 +64,7 @@ void setup()
 
 void loop()
 {
+  updateEncoder(); 
   if (!Serial.available())
     return;
   char command = Serial.read();
