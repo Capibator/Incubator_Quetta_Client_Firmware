@@ -14,7 +14,7 @@ int dir;
 #define ENTER 3
 #define BACK 4
 
-#define longPressAfterMiliseconds  500  //how long čong press shoud be.
+#define longPressAfterMiliseconds 500 // how long čong press shoud be.
 
 // INITIALIZETD
 DHT dht(DHTPIN, DHTTYPE);
@@ -42,35 +42,38 @@ void UpdateSensor(sensor *sensor)
   }
 }
 
-
-void on_button_long_click() {
+void on_button_long_click()
+{
   Serial.print("button LONG press ");
-  dir = BACK; 
+  dir = BACK;
 }
 
-void handle_rotary_button() {
+void handle_rotary_button()
+{
   static unsigned long lastTimeButtonDown = 0;
   static bool wasButtonDown = false;
 
   bool isEncoderButtonDown = rotaryEncoder.isEncoderButtonDown();
-  //isEncoderButtonDown = !isEncoderButtonDown; //uncomment this line if your button is reversed
+  // isEncoderButtonDown = !isEncoderButtonDown; //uncomment this line if your button is reversed
 
-  if (isEncoderButtonDown) {
-    Serial.print("+");  //REMOVE THIS LINE IF YOU DONT WANT TO SEE
-    if (!wasButtonDown) {
-      //start measuring
+  if (isEncoderButtonDown)
+  {
+    Serial.print("+"); // REMOVE THIS LINE IF YOU DONT WANT TO SEE
+    if (!wasButtonDown)
+    {
+      // start measuring
       lastTimeButtonDown = millis();
     }
-    //else we wait since button is still down
+    // else we wait since button is still down
     wasButtonDown = true;
     return;
   }
 
-  //button is up
-  if (wasButtonDown) {
-    Serial.println("");  //REMOVE THIS LINE IF YOU DONT WANT TO SEE
-    //click happened, lets see if it was short click, long click or just too short
-    if (millis() - lastTimeButtonDown >= longPressAfterMiliseconds) {
+  // button is up
+  if (wasButtonDown)
+  {
+    if (millis() - lastTimeButtonDown >= longPressAfterMiliseconds)
+    {
       on_button_long_click();
     }
   }
@@ -83,14 +86,12 @@ void updateEncoder()
   int val;
   dir;
 
-
   if (rotaryEncoder.isEncoderButtonClicked())
   {
-    
+
     dir = ENTER;
     Serial.println("button pressed");
   }
-
 
   if (rotaryEncoder.encoderChanged())
   {
@@ -135,5 +136,5 @@ void loop()
   updateEncoder();
   handle_rotary_button();
   processMenuCommand(menu, dir, UP, DOWN, ENTER, BACK);
-  dir = IDLE; 
+  dir = IDLE;
 }

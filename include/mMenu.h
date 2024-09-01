@@ -10,14 +10,15 @@
 #define LCD_COLS 16
 
 // Configure keyboard keys (ASCII) TODO: change this to rotary encoder tingy 
-#define UP 'w'
-#define DOWN 's'
-#define LEFT 'a'
-#define RIGHT 'd'
-#define ENTER ' '
-#define BACK 'b'
-#define BACKSPACE 'v'
-#define CLEAR 'c'
+// mine working with rotary encoder. if using keyboard uncomment this. 
+// #define UP 'w'
+// #define DOWN 's'
+// #define LEFT 'a'
+// #define RIGHT 'd'
+// #define ENTER ' '
+// #define BACK 'b'
+// #define BACKSPACE 'v'
+// #define CLEAR 'c'
 
 MAIN_MENU(
     ITEM_BASIC("Start service"),
