@@ -21,11 +21,11 @@
 // #define CLEAR 'c'
 
 MAIN_MENU(
-    ITEM_BASIC("Start service"),
-    ITEM_BASIC("Connect to WiFi"),
-    ITEM_BASIC("Settings"),
-    ITEM_BASIC("Blink SOS"),
-    ITEM_BASIC("Blink random")
+    ITEM_BASIC("Check Updates"),
+    ITEM_BASIC("Start Hatch"),
+    ITEM_BASIC("Cancel Hatch"),
+    ITEM_BASIC("Days Left"),
+    ITEM_BASIC("Reset Hatch")
 );
 
 LiquidCrystalI2CAdapter lcdAdapter(0x27, LCD_COLS, LCD_ROWS);

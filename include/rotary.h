@@ -20,7 +20,7 @@ extern AiEsp32RotaryEncoder rotaryEncoder;
 void initEncoder(); 
 void handle_rotary_button();
 void IRAM_ATTR readEncoderISR();
-void on_button_long_click();
+bool on_button_long_click();
 void updateEncoder();
 
 #endif // ROTARY_H

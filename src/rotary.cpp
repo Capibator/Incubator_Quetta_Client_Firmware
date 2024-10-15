@@ -18,10 +18,11 @@ void IRAM_ATTR readEncoderISR()
     rotaryEncoder.readEncoder_ISR();
 }
 
-void on_button_long_click()
+bool on_button_long_click()
 {
     Serial.print("button LONG press ");
     dir = BACK;
+    return true; 
 }
 
 void handle_rotary_button()
